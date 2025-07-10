@@ -8,7 +8,8 @@ A clean and modular **React Native app** built using **Expo** and **TypeScript**
 
 > 📁 File: `demo.mov`  
 You can view the full demo screen recording [here](./demo.mov)
-
+** Unable to Open **
+> Click View Raw and Download the Demo Video
 ---
 
 ## ✨ Features
