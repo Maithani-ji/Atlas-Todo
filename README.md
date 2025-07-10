@@ -10,8 +10,19 @@ A clean and modular **React Native app** built using **Expo** and **TypeScript**
 You can view the full demo screen recording [here](./demo.mov)
 ** Unable to Open **
 > Click View Raw and Download the Demo Video
+> 
 ---
+## 🖼️ Screenshots
 
+| Overview | Create Project | Project List |
+|---------|----------------|--------------|
+| ![One](./assets/demoScreenshot/One.png) | ![Two](./assets/demoScreenshot/Two.png) | ![Three](./assets/demoScreenshot/Three.png) |
+
+| Task List | Complete Task | Delete Project |
+|----------|----------------|----------------|
+| ![Four](./assets/demoScreenshot/Four.png) | ![Five](./assets/demoScreenshot/Five.png) | ![Six](./assets/demoScreenshot/Six.png) |
+
+---
 ## ✨ Features
 
 - ✅ Add & delete **Projects**
