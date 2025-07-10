@@ -92,19 +92,4 @@ You can view the full demo screen recording [here](./demo.mov)
 - 📊 Progress charts and analytics
 - 👥 Multi-user sync
 
----
-
-## 📃 License
-
-This project is open-sourced under the **MIT License**.
-
----
-
-## 🧑‍💻 Author
-
-**Tushar Maithani**  
-[GitHub](https://github.com/) · [LinkedIn](https://linkedin.com/) · Portfolio
-
-💼 *Freelance-style delivery*: This submission can also be reflected as a **freelance/contract module** for portfolio/resume use.
-
 
