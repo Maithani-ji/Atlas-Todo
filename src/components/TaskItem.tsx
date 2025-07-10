@@ -1,29 +1,75 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Task } from '../types'
 
 type Props = {
   task: Task
   toggle: () => void
+  onDelete: () => void
 }
 
-export default function TaskItem({ task, toggle }: Props) {
+export default function TaskItem({ task, toggle, onDelete }: Props) {
   return (
-    <TouchableOpacity onPress={toggle} style={styles.item}>
-      <Text style={task.completed ? styles.completed : undefined}>{task.title}</Text>
-    </TouchableOpacity>
+    <View style={styles.item}>
+      <TouchableOpacity onPress={toggle} style={styles.taskContent}>
+        <View style={[styles.circle,task.completed && styles.circleFilled]} />
+        <Text style={[styles.text, task.completed && styles.completedText]}>
+          {task.title}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={onDelete}>
+        <Text style={styles.delete}>✕</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   item: {
-    padding: 10,
-    marginVertical: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 14,
+    marginVertical: 6,
+    borderRadius: 10,
+    backgroundColor: '#fff',
     borderWidth: 1,
-    borderRadius: 6,
+    borderColor: '#ddd',
+    justifyContent: 'space-between',
   },
-  completed: {
+  taskContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  circle: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#007aff',
+    marginRight: 10,
+  },
+  circleFilled: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 2,
+    backgroundColor: '#007aff',
+    borderColor: '#007aff',
+    marginRight: 10,
+  },
+  text: {
+    fontSize: 16,
+    color: '#333',
+  },
+  completedText: {
     textDecorationLine: 'line-through',
-    color: 'gray',
+    color: '#999',
+  },
+  delete: {
+    color: '#ff3b30',
+    fontSize: 18,
+    paddingHorizontal: 8,
   },
 })

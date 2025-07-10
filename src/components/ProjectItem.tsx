@@ -1,32 +1,66 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Project } from '../types'
 
 type Props = {
   project: Project
-  onPress: () => void
+  
 }
 
-export default function ProjectItem({ project, onPress }: Props) {
-  const done = project.tasks.filter(t => t.completed).length
+const ProjectItem = ({ project }: Props) => {
+  const completed = project.tasks.filter(t => t.completed).length
   const total = project.tasks.length
-  const isCompleted = done === total && total > 0
+  const isDone = completed === total && total > 0
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.card}>
+    <View style={styles.card}  >
       <Text style={styles.title}>{project.title}</Text>
-      <Text>{`${done} of ${total} tasks`}</Text>
-      <Text>Status: {isCompleted ? 'Completed' : 'In Progress'}</Text>
-    </TouchableOpacity>
+      <View style={styles.meta}>
+        <Text style={styles.progress}>{`${completed} of ${total} done`}</Text>
+        <Text style={[styles.status, isDone ? styles.done : styles.inProgress]}>
+          {isDone ? 'Completed' : 'In Progress'}
+        </Text>
+      </View>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   card: {
-    padding: 12,
-    borderRadius: 8,
-    borderWidth: 1,
-    marginVertical: 6,
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.06,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    elevation: 3,
+    marginBottom: 12,
   },
-  title: { fontWeight: 'bold' },
+  title: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#222',
+  },
+  meta: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 8,
+  },
+  progress: {
+    color: '#777',
+    fontSize: 14,
+  },
+  status: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  done: {
+    color: '#28a745',
+  },
+  inProgress: {
+    color: '#ff9500',
+  },
 })
+
+export default ProjectItem
